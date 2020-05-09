@@ -113,20 +113,11 @@ function init() {
         }
     });
 
-    // rocket.addEventListener('click', function() {
-    //     rocket.style.left = '0px';
-    //     rocket.style.bottom = '0px';
-    //     document.getElementById('spaceShuttleHeight').innerHTML = '0';
-    // });
-
-
-
-    // upButton.addEventListener('click', function(event) {
-    //     document.getElementById('rocket').style.
-
-
-    // });
-
+    rocket.addEventListener('click', function() {
+        rocket.style.left = '0px';
+        rocket.style.bottom = '0px';
+        document.getElementById('spaceShuttleHeight').innerHTML = '10000';
+    });
 }
 
 
