@@ -67,8 +67,10 @@ function init() {
 
     rightButton.addEventListener('click', function() {
         if (document.getElementById('flightStatus').innerHTML === 'Shuttle in flight.') {
-            let movement = parseInt(rocket.style.left) + 10 + 'px';
-            rocket.style.left = movement;
+            if (parseInt(rocket.style.left) < 550) {
+                let movement = parseInt(rocket.style.left) + 10 + 'px';
+                rocket.style.left = movement;
+            }
         } else {
             alert("Liftoff has not been initiated.");
         }
@@ -76,8 +78,10 @@ function init() {
 
     leftButton.addEventListener('click', function() {
         if (document.getElementById('flightStatus').innerHTML === 'Shuttle in flight.') {
-            let movement = parseInt(rocket.style.left) - 10 + 'px';
-            rocket.style.left = movement;
+            if (parseInt(rocket.style.left) > -20) {
+                let movement = parseInt(rocket.style.left) - 10 + 'px';
+                rocket.style.left = movement;
+            }
         } else {
             alert("Liftoff has not been initiated.");
         }
@@ -85,10 +89,12 @@ function init() {
 
     upButton.addEventListener('click', function() {
         if (document.getElementById('flightStatus').innerHTML === 'Shuttle in flight.') {
-            let movement = parseInt(rocket.style.bottom) + 10 + 'px';
-            rocket.style.bottom = movement;
-            let height = parseInt(document.getElementById('spaceShuttleHeight').innerHTML) + 10000;
-            document.getElementById('spaceShuttleHeight').innerHTML = height.toString();
+            if (parseInt(rocket.style.bottom) < 250) {
+                let movement = parseInt(rocket.style.bottom) + 10 + 'px';
+                rocket.style.bottom = movement;
+                let height = parseInt(document.getElementById('spaceShuttleHeight').innerHTML) + 10000;
+                document.getElementById('spaceShuttleHeight').innerHTML = height.toString();
+            }
         } else {
             alert("Liftoff has not been initiated.");
         }
@@ -96,20 +102,22 @@ function init() {
 
     downButton.addEventListener('click', function() {
         if (document.getElementById('flightStatus').innerHTML === 'Shuttle in flight.') {
-            let movement = parseInt(rocket.style.bottom) - 10 + 'px';
-            rocket.style.bottom = movement;
-            let height = parseInt(document.getElementById('spaceShuttleHeight').innerHTML) - 10000;
-            document.getElementById('spaceShuttleHeight').innerHTML = height.toString();
+            if (parseInt(rocket.style.bottom) > 0) {
+                let movement = parseInt(rocket.style.bottom) - 10 + 'px';
+                rocket.style.bottom = movement;
+                let height = parseInt(document.getElementById('spaceShuttleHeight').innerHTML) - 10000;
+                document.getElementById('spaceShuttleHeight').innerHTML = height.toString();
+            }
         } else {
             alert("Liftoff has not been initiated.");
         }
     });
 
-    rocket.addEventListener('click', function() {
-        rocket.style.left = '0px';
-        rocket.style.bottom = '0px';
-        document.getElementById('spaceShuttleHeight').innerHTML = '0';
-    });
+    // rocket.addEventListener('click', function() {
+    //     rocket.style.left = '0px';
+    //     rocket.style.bottom = '0px';
+    //     document.getElementById('spaceShuttleHeight').innerHTML = '0';
+    // });
 
 
 
